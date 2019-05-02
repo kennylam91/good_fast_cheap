@@ -9,21 +9,21 @@
 <body class="divto">
 <div class="to">
     <label class="switch">
-        <input type="checkbox" id="good" onclick="click1()">
+        <input type="checkbox" id="good" onclick="click1(this.id)">
         <span class="slider round"></span>
     </label>
     <p class="text"> GOOD</p>
 </div>
 <div class="to">
     <label class="switch">
-        <input type="checkbox" id="fast" onclick="click2()">
+        <input type="checkbox" id="fast" onclick="click1(this.id)">
         <span class="slider round"></span>
     </label>
     <p class="text"> FAST</p>
 </div>
 <div class="to">
     <label class="switch">
-        <input type="checkbox" id="cheap" onclick="click3()">
+        <input type="checkbox" id="cheap" onclick="click1(this.id)">
         <span class="slider round"></span>
     </label>
     <p class="text"> CHEAP</p>
@@ -32,23 +32,13 @@
     let button1 = document.getElementById("good");
     let button2 = document.getElementById("fast");
     let button3 = document.getElementById("cheap");
-    button1.checked = false;
-    button2.checked = false;
-    button3.checked = false;
-    function click3() {
-        if (button1.checked && button2.checked&& button3.checked){
-            button2.checked =false;
 
-        }
-    }
-    function click2() {
-        if(button1.checked&&button2.checked&&button3.checked){
-            button1.checked=false;
-        }
-    }
-    function click1() {
-        if (button1.checked && button2.checked && button3.checked) {
-            button3.checked = false;
+    function click1(x) {
+        console.log(x);
+        if ((button1.checked && button2.checked && button3.checked)) {
+            if (x == "cheap") button2.checked = false;
+            if (x == "fast") button1.checked = false;
+            if (x == "good") button3.checked = false;
         }
     }
 </script>
